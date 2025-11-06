@@ -1,0 +1,789 @@
+
+/* Make header logo + text align side by side */
+.site-header {
+  display: flex;
+  align-items: center;     /* vertically centers logo and text */
+  justify-content: center; /* centers everything horizontally */
+  gap: 20px;               /* spacing between logo and text */
+  margin: 20px 0;
+  text-shadow: 2px 2px 3px black;
+}
+
+/* Logo styling */
+.circle-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;   /* keeps it circular */
+  object-fit: cover;
+  box-shadow: 10px 10xp 10xp 0px gainsboro;
+}
+
+/* Header text */
+.site-header h1 {
+  font-size: 1.8rem;
+  color: #111;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size:40px;
+  text-align: center;
+}
+.site-header h2 {
+  font-size: 1.3rem;
+  color: #111;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
+}
+#title {
+  text-align: center;
+}
+.policies{ text-align: center;
+}
+
+
+
+/* Navigation bar base */
+nav {
+  background-color: #333;     /* dark background */
+  position: relative;         /* create stacking context for z-index */
+  overflow: visible;          /* allow dropdowns to extend outside */
+  z-index: 100;               /* keep menu above page content */
+}
+
+nav ul {
+  list-style: none;           /* remove bullets */
+  margin: 0;
+  padding: 0;
+  display: flex;              /* horizontal layout */
+}
+
+nav ul li {
+  flex: 1;                    /* equal spacing across the bar */
+  position: relative;         /* needed for absolute-positioned dropdown */
+}
+
+nav ul li > a {
+  display: block;
+  color: #fff;                /* text color */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li > a:hover {
+  background-color: #575757;  /* hover effect */
+}
+
+/* --- Dropdown --- */
+nav ul li ul {
+  display: none;              /* hidden by default */
+  position: absolute;
+  top: 100%;                  /* directly below the parent li */
+  left: 0;                    /* align left under parent; change to 50% + translateX to center */
+  background-color: #333;
+  min-width: 180px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;              /* ensure it sits above other elements */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* optional: nicer look */
+}
+
+/* Dropdown items */
+nav ul li ul li a {
+  display: block;
+  padding: 12px 16px;
+  text-align: left;
+  color: #fff;
+  white-space: nowrap;        /* prevent wrapping if items are long */
+}
+
+nav ul li ul li a:hover {
+  background-color: #575757;
+}
+
+/* Reveal on hover */
+nav ul li:hover > ul {
+  display: block;
+}
+
+.menu-toggle {
+  display: none;              /* hidden on desktop */
+  font-size: 28px;
+  color: white;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+
+img {
+  border-radius: 3px;
+}
+
+
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;            /* hidden until toggled */
+    flex-direction: column;
+    width: 100%;
+    max-height: 80vh;         /* prevent menu from being taller than screen */
+    overflow-y: auto;         /* allow scrolling if too tall */
+  }
+
+  nav ul.show {
+    display: flex;            /* show when JS adds "show" */
+  }
+
+  nav ul li {
+    flex: none;
+    width: 100%;
+  }
+
+  nav ul li > a {
+    text-align: left;
+    padding: 14px 18px;
+    border-top: 1px solid #444; /* divider lines */
+  }
+
+  /* Dropdowns inline for mobile */
+  nav ul li ul {
+    position: static;
+    box-shadow: none;
+  }
+
+  nav ul li ul li a {
+    padding-left: 28px;       /* indent submenu items */
+  }
+
+  .menu-toggle {
+    display: block;           /* show hamburger */
+  }
+}
+nav ul li.has-submenu > a::after {
+  content: " ▾";
+}
+
+/* mobile: show submenus when the parent li has .open */
+@media (max-width: 768px) {
+  nav ul li.open > ul {
+    display: block;           /* reveal submenu when toggled by JS */
+  }
+
+  /* optional: nicer caret on mobile */
+  nav ul li.has-submenu > a {
+    position: relative;
+    padding-right: 32px;
+  }
+  nav ul li.has-submenu > a::after {
+    position: absolute;
+    right: 16px;
+    transition: transform .2s ease;
+  }
+  nav ul li.open > a::after {
+    transform: rotate(180deg);
+  }
+}
+
+
+
+
+
+
+
+    /*Home Page*/
+  #storeimage {
+  width: 100%;       /* stretch container across the page */
+  margin: 0;
+  padding: 0;
+}
+
+#storeimage img {
+  margin-top: 10px;
+  width: 100%;       /* stretch image to the container's full width */
+  height: auto;      /* keep natural aspect ratio */
+  display: block;    /* remove default inline gap */
+  object-fit: cover; /* optional: ensures nice crop if container has a fixed height */
+  height: 35em;
+}
+
+#text-front {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: 2em;
+  line-height: 1.8;
+  color: #000000;
+  text-shadow: 1px 1px  0px rgb(0, 0, 0)
+}
+
+
+
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.Container img {
+  width: 100%;          /* span full column width */
+  height: 350px;        /* set a fixed height for all images */
+  object-fit: cover;    /* crop/zoom so image fills the box evenly */
+  display: block;
+  border-radius: 8px;   /* optional: rounded corners */
+}
+
+.Container h2 {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+/* Make it responsive: 2 columns on medium screens */
+@media (max-width: 900px) {
+  .grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Single column on small screens */
+@media (max-width: 600px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+    /* Rentals */
+  /* Section wrapper */
+.catalog {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+.catalog h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  letter-spacing: .5px;
+}
+
+/* Responsive grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .product-grid { grid-template-columns: 1fr; }
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  padding: 14px;
+  text-align: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+
+/* Image */
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;     /* keeps square thumbnails */
+  object-fit: contain;      /* fit inside the box */
+  object-position: center;  /* center it */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Text */
+.card h3 {
+  margin: 6px 0 2px;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+.card .sub {
+  margin: 4px 0 8px;
+  color: #666;
+  font-size: .95rem;
+  line-height: 1.35;
+}
+.card .price {
+  color: #000000;          /* orange like your screenshot */
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+
+
+/* Decoration page */
+.decorp{
+  font-size: 30px;
+}
+
+
+#decorations{
+  text-align: center;
+   text-shadow: 1px 1px black;
+}
+.section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 10%;
+      gap: 30px;
+    }
+
+    .section img {
+      width: 40%;
+     
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 10px 10px 10px 0px  black;
+    }
+
+    .section .text {
+      width: 50%;
+    }
+
+    /* Alternate the order every other section */
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
+      background: #fff;
+    }
+
+    .section:nth-child(odd) {
+      background: #f0f0f0;
+    }
+
+    @media (max-width: 768px) {
+      .decorp {
+    font-size: 18px; /* smaller size for mobile screens */
+  }
+      .section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .section img,
+      .section .text {
+        width: 100%;
+        font-size: 16px;
+      }
+      .section:nth-child(even) {
+        flex-direction: column;
+      }
+      
+      
+
+    }
+
+
+
+
+
+
+
+.circle-img-bottom {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;   /* keeps it circular need to look into this code */
+  object-fit: cover;
+  box-shadow: 10px 10xp 10xp 0px gainsboro;
+  float: left
+}
+  
+  .store-footer {
+  background: #333;         /* dark footer background */
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.store-footer h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+align-items: center;  
+}
+
+/* neat two-column look for hours */
+.hours-list {
+  float: r;
+  list-style: none;
+  max-width: 400px;         /* keep centered and tidy */
+  margin: 0 auto 20px;
+  padding: 0;
+  
+  
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.hours-list .day {
+  font-weight: 600;
+  float: right;
+}
+
+.hours-list .time.closed {
+  color: #ff6b6b;           /* red text for CLOSED */
+  font-weight: 700;
+}
+
+.store-footer .copyright {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Mobile-friendly stacking */
+
+@media (max-width: 480px) {
+   .circle-img-bottom {
+    display: block;          /* so it takes full line and margin auto works */
+    margin: 0 auto 20px auto; /* top 0, bottom 20px spacing */
+    float: none;             /* ensure float removed if it was used earlier */
+  }
+  
+  .hours-list li {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hours-list .day,
+  .hours-list .time {
+    width: 100%;
+  }
+}
+
+
+.product-gridc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+
+
+
+
+
+#addonc{
+  text-align: center;
+}
+
+#decorations {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.canopysection {
+  text-align: center;
+  padding: 20px;
+}
+
+.canopyheader {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Flex container for images */
+.canopy-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;          /* allows wrapping on smaller screens */
+  gap: 20px;                /* spacing between images */
+}
+
+/* Image styling */
+.canopy-images img {
+  max-width: 400px;         /* limits image width so all 3 fit side by side */
+  height: auto;             /* keeps aspect ratio */
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  
+}
+#floorplan{
+  text-align:center
+}
+/* Responsive tweaks */
+@media (max-width: 1000px) {
+  .canopy-images img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .canopy-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .canopy-images img {
+    max-width: 90%;
+  }
+}
+
+
+
+
+
+  
+.hero{
+   height: 25em;
+  background-image: url(images/decortion\ 1.jpg);
+  background-size: cover; /* makes it fill the section */
+  background-position: center; /* keeps it centered */
+  background-repeat: no-repeat; /* avoids tiling */
+  display: flex; /* centers content */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+#heroh1{
+  text-align: center;
+}
+#herop{
+  text-align: center;
+   font-size: 24px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+#about {
+  background-color: #fffdfb; /* soft cream tone */
+  padding: 60px 0;
+  font-family: "Poppins", sans-serif;
+  color: #1c1b1a;
+}
+
+/* Container layout */
+.containerss.about-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Image styling */
+.about-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* Text card */
+.about-card {
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+}
+
+.about-card h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: #b2895b; /* warm gold accent */
+  margin-bottom: 15px;
+}
+
+.about-card .lead {
+  color: #666;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  color: #444;
+  line-height: 1.7;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .containerss.about-wrap {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-card {
+    text-align: left;
+  }
+
+  .about-wrap img {
+    max-width: 90%;
+    margin: 0 auto 25px;
+  }
+}
+
+
+
+
+
+
+
+  /* CONTAINER */
+  .containers {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 3em 0;
+  }
+
+  /* SERVICES */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5em;
+  }
+
+  .service {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .service img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .service .p {
+    padding: 1em 1.2em;
+  }
+
+  .service h3 {
+    margin: 0.4em 0;
+    color: var(--brand);
+  }
+
+  .service p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  /* GALLERY */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-grid img:hover {
+    transform: scale(1.03);
+  }
+
+
+
+  /*  Banner */
+  .grid-layoutb {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.Containerb img {
+  width: 100%;          /* span full column width */
+  height: 350px;        /* set a fixed height for all images */
+  object-fit: contain;    /* crop/zoom so image fills the box evenly */
+  display: block;
+  border-radius: 8px;   /* optional: rounded corners */
+}
+
+
+/* jumper banner center Card */
+.cardm {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  padding: 14px;
+  text-align: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+  max-width: 250px;  /* match grid card width */
+  margin: 0 auto;    /* center it */
+  margin-bottom: 50px;
+
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+
+/* Image */
+.cardm img {
+  width: 100%;
+  aspect-ratio: 1 / 1;     /* keeps square thumbnails */
+  object-fit: contain;      /* fit inside the box */
+  object-position: center;  /* center it */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.H3banner{
+  text-align: center;
+  font-size: 40px;
+}
+
+.cardm .H3banner{
+  align-items: center;
+
+}
