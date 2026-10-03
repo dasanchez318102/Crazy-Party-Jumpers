@@ -1,131 +1,185 @@
 
 /* Make header logo + text align side by side */
-.site-header {
-  display: flex;
-  align-items: center;     /* vertically centers logo and text */
-  justify-content: center; /* centers everything horizontally */
-  gap: 20px;               /* spacing between logo and text */
-  margin: 20px 0;
-  text-shadow: 2px 2px 3px black;
+/* ========================================
+   HEADER
+======================================== */
+* {
+  box-sizing: border-box;
 }
 
-/* Logo styling */
-.circle-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;   /* keeps it circular */
-  object-fit: cover;
-  box-shadow: 10px 10xp 10xp 0px gainsboro;
-}
-
-/* Header text */
-.site-header h1 {
-  font-size: 1.8rem;
-  color: #111;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size:40px;
-  text-align: center;
-}
-.site-header h2 {
-  font-size: 1.3rem;
-  color: #111;
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-  font-size: 30px;
-}
-#title {
-  text-align: center;
-}
-.policies{ text-align: center;
-}
-
-@media (max-width: 600px) {
-  .site-header h1{
-    font-size: 20px;
-    color: black;
-    text-decoration: none;
-  }
-  .site-header h2{
-    font-size: 20px;
-    text-decoration: none;
-  }
-
-}
-
-
-
-
-
-/* Navigation bar base */
-nav {
-  background-color: #333;     /* dark background */
-  position: relative;         /* create stacking context for z-index */
-  overflow: visible;          /* allow dropdowns to extend outside */
-  z-index: 100;               /* keep menu above page content */
-}
-
-nav ul {
-  list-style: none;           /* remove bullets */
+html,
+body {
   margin: 0;
   padding: 0;
-  display: flex;              /* horizontal layout */
+  width: 100%;
 }
 
-nav ul li {
-  flex: 1;                    /* equal spacing across the bar */
-  position: relative;         /* needed for absolute-positioned dropdown */
-}
-
-nav ul li > a {
-  display: block;
-  color: #fff;                /* text color */
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav ul li > a:hover {
-  background-color: #575757;  /* hover effect */
-}
-
-/* --- Dropdown --- */
-nav ul li ul {
-  display: none;              /* hidden by default */
-  position: absolute;
-  top: 100%;                  /* directly below the parent li */
-  left: 0;                    /* align left under parent; change to 50% + translateX to center */
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
   background-color: #333;
-  min-width: 180px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1000;
+}
+
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logo img,
+.circle-img {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+nav {
+  flex: 1;
+  background-color: #333;
+  position: relative;
+  overflow: visible;
+  z-index: 100;
+}
+
+
+/* Main navigation list */
+
+nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  z-index: 1000;              /* ensure it sits above other elements */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* optional: nicer look */
+  display: flex;
 }
 
-/* Dropdown items */
+
+/* Main navigation items */
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+/* Navigation links */
+
+nav ul li > a {
+  display: block;
+
+  color: white;
+
+  text-align: center;
+
+  padding: 14px 16px;
+
+  text-decoration: none;
+}
+
+
+/* Hover effect */
+
+nav ul li > a:hover {
+  background-color: #575757;
+}
+
+
+/* ========================================
+   DROPDOWN
+======================================== */
+
+nav ul li ul {
+  display: none;
+
+  position: absolute;
+
+  top: 100%;
+  left: 0;
+
+  background-color: #333;
+
+  min-width: 180px;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+
+  z-index: 1000;
+
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Dropdown list items */
+
+nav ul li ul li {
+  width: 100%;
+
+  flex: none;
+}
+
+
+/* Dropdown links */
+
 nav ul li ul li a {
   display: block;
   padding: 12px 16px;
   text-align: left;
-  color: #fff;
-  white-space: nowrap;        /* prevent wrapping if items are long */
+  color: white;
+  white-space: nowrap;
 }
+
+
+/* Dropdown hover */
 
 nav ul li ul li a:hover {
   background-color: #575757;
 }
 
-/* Reveal on hover */
-nav ul li:hover > ul {
-  display: block;
+
+/* ========================================
+   DESKTOP DROPDOWN
+======================================== */
+
+@media (min-width: 769px) {
+  nav ul li:hover > ul {
+    display: block;
+  }
+
 }
 
+
+/* ========================================
+   DROPDOWN ARROW
+======================================== */
+
+nav ul li.has-submenu > a::after {
+  content: " ▾";
+}
+
+
+/* ========================================
+   HAMBURGER MENU
+======================================== */
+
 .menu-toggle {
-  display: none;              /* hidden on desktop */
+  display: none;
   font-size: 28px;
   color: white;
   padding: 14px 16px;
@@ -133,79 +187,125 @@ nav ul li:hover > ul {
 }
 
 
-img {
-  border-radius: 3px;
-}
-
-
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 768px) {
-  nav ul {
-    display: none;            /* hidden until toggled */
+
+  /* HEADER */
+
+  .header {
+    padding: 0 10px;
+    flex-wrap: wrap;
+  }
+
+
+  /* LOGO */
+
+  .logo img,
+  .circle-img {
+    width: 75px;
+    height: 75px;
+  }
+
+
+  /* NAV */
+
+  nav {
+    flex: 1;
+  }
+
+
+  /* HAMBURGER */
+
+  .menu-toggle {
+    display: block;
+    text-align: right;
+  }
+
+
+  /* MAIN MENU */
+
+  nav > ul {
+    display: none;
     flex-direction: column;
     width: 100%;
-    max-height: 80vh;         /* prevent menu from being taller than screen */
-    overflow-y: auto;         /* allow scrolling if too tall */
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
-  nav ul.show {
-    display: flex;            /* show when JS adds "show" */
+
+  /* JavaScript adds .show */
+
+  nav > ul.show {
+    display: flex;
   }
 
-  nav ul li {
+
+  /* MOBILE LIST ITEMS */
+
+  nav > ul > li {
     flex: none;
     width: 100%;
   }
 
-  nav ul li > a {
+
+  /* MOBILE LINKS */
+
+  nav > ul > li > a {
     text-align: left;
     padding: 14px 18px;
-    border-top: 1px solid #444; /* divider lines */
+    border-top: 1px solid #444;
   }
 
-  /* Dropdowns inline for mobile */
+
+  /* ========================================
+     MOBILE DROPDOWN
+  ======================================== */
+
   nav ul li ul {
     position: static;
+    width: 100%;
     box-shadow: none;
+    background-color: #292929;
   }
+
 
   nav ul li ul li a {
-    padding-left: 28px;       /* indent submenu items */
+    padding-left: 28px;
   }
 
-  .menu-toggle {
-    display: block;           /* show hamburger */
-  }
-}
-nav ul li.has-submenu > a::after {
-  content: " ▾";
-}
 
-/* mobile: show submenus when the parent li has .open */
-@media (max-width: 768px) {
+  /* Show submenu when JS adds .open */
+
   nav ul li.open > ul {
-    display: block;           /* reveal submenu when toggled by JS */
+    display: block;
   }
 
-  /* optional: nicer caret on mobile */
+
+  /* ========================================
+     MOBILE DROPDOWN ARROW
+  ======================================== */
+
   nav ul li.has-submenu > a {
     position: relative;
     padding-right: 32px;
   }
+
+
   nav ul li.has-submenu > a::after {
     position: absolute;
     right: 16px;
-    transition: transform .2s ease;
+    transition: transform 0.2s ease;
   }
+
+
   nav ul li.open > a::after {
     transform: rotate(180deg);
   }
+
 }
-
-
-
-
-
 
 
     /*Home Page*/
