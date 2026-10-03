@@ -13,22 +13,42 @@ body {
 /* =========================
    HEADER
 ========================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
 
 .header {
   display: flex;
   align-items: center;
+
   width: 100%;
   min-height: 110px;
+
   background-color: #333;
+
   padding: 5px 20px;
+
   position: relative;
+
   z-index: 1000;
 }
 
 
-/* =========================
+/* ========================================
    LOGO
-========================= */
+======================================== */
 
 .logo {
   flex-shrink: 0;
@@ -39,15 +59,16 @@ body {
   height: 100px;
 
   border-radius: 50%;
+
   object-fit: cover;
 
   display: block;
 }
 
 
-/* =========================
-   NAV
-========================= */
+/* ========================================
+   NAVIGATION
+======================================== */
 
 nav {
   flex: 1;
@@ -55,11 +76,14 @@ nav {
   margin-left: 25px;
 
   position: relative;
+
   overflow: visible;
+
+  z-index: 100;
 }
 
 
-/* MAIN NAV LIST */
+/* MAIN NAVIGATION UL */
 
 nav > ul {
   list-style: none;
@@ -70,20 +94,21 @@ nav > ul {
   display: flex;
 
   align-items: center;
+
   justify-content: space-between;
 
   width: 100%;
 }
 
 
-/* MAIN NAV ITEMS */
+/* MAIN NAVIGATION LI */
 
 nav > ul > li {
   position: relative;
 }
 
 
-/* MAIN NAV LINKS */
+/* MAIN NAVIGATION LINKS */
 
 nav > ul > li > a {
   display: block;
@@ -100,14 +125,16 @@ nav > ul > li > a {
 }
 
 
+/* NAVIGATION HOVER */
+
 nav > ul > li > a:hover {
   background-color: #575757;
 }
 
 
-/* =========================
-   DROPDOWNS
-========================= */
+/* ========================================
+   DROPDOWN MENU
+======================================== */
 
 nav ul li ul {
   display: none;
@@ -132,10 +159,14 @@ nav ul li ul {
 }
 
 
+/* DROPDOWN LI */
+
 nav ul li ul li {
   width: 100%;
 }
 
+
+/* DROPDOWN LINKS */
 
 nav ul li ul li a {
   display: block;
@@ -152,12 +183,16 @@ nav ul li ul li a {
 }
 
 
+/* DROPDOWN HOVER */
+
 nav ul li ul li a:hover {
   background-color: #575757;
 }
 
 
-/* DESKTOP DROPDOWN */
+/* ========================================
+   DESKTOP DROPDOWN
+======================================== */
 
 @media (min-width: 769px) {
 
@@ -168,66 +203,106 @@ nav ul li ul li a:hover {
 }
 
 
-/* DROPDOWN ARROW */
+/* ========================================
+   DROPDOWN ARROW
+======================================== */
 
 nav ul li.has-submenu > a::after {
   content: " ▾";
 }
 
 
-/* =========================
+/* ========================================
    HAMBURGER
-========================= */
+======================================== */
 
 .menu-toggle {
   display: none;
 
   color: white;
 
-  font-size: 28px;
+  font-size: 30px;
+
+  padding: 10px;
 
   cursor: pointer;
 }
 
 
-/* =========================
+/* ========================================
    MOBILE
-========================= */
+======================================== */
 
 @media (max-width: 768px) {
 
+  /* -------------------------
+     HEADER
+  ------------------------- */
+
   .header {
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
     min-height: 85px;
 
     padding: 5px 10px;
+
+    position: relative;
   }
 
 
-  /* smaller logo */
+  /* -------------------------
+     LOGO
+  ------------------------- */
 
   .circle-img {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
   }
 
+
+  /* -------------------------
+     NAV
+  ------------------------- */
 
   nav {
-    margin-left: auto;
+    flex: 1;
 
-    flex: 0;
+    margin-left: 0;
+
+    position: static;
   }
 
 
-  /* hamburger */
+  /* -------------------------
+     HAMBURGER
+  ------------------------- */
 
   .menu-toggle {
     display: block;
 
-    padding: 14px;
+    font-size: 30px;
+
+    color: white;
+
+    text-align: right;
+
+    padding: 10px;
+
+    cursor: pointer;
   }
 
 
-  /* mobile menu */
+  /* -------------------------
+     MAIN MOBILE MENU
+  ------------------------- */
 
   nav > ul {
     display: none;
@@ -239,6 +314,9 @@ nav ul li.has-submenu > a::after {
 
     width: 100%;
 
+    margin: 0;
+    padding: 0;
+
     flex-direction: column;
 
     align-items: stretch;
@@ -248,54 +326,101 @@ nav ul li.has-submenu > a::after {
     max-height: 80vh;
 
     overflow-y: auto;
+
+    z-index: 2000;
   }
 
+
+  /* JavaScript adds .show */
 
   nav > ul.show {
     display: flex;
   }
 
 
+  /* -------------------------
+     MOBILE MENU ITEMS
+  ------------------------- */
+
   nav > ul > li {
     width: 100%;
   }
 
 
+  /* -------------------------
+     MOBILE LINKS
+  ------------------------- */
+
   nav > ul > li > a {
-    text-align: left;
+    display: block;
+
+    width: 100%;
 
     padding: 14px 18px;
+
+    color: white;
+
+    text-align: left;
+
+    text-decoration: none;
 
     border-top: 1px solid #444;
   }
 
 
-  /* MOBILE SUBMENUS */
+  /* -------------------------
+     MOBILE SUBMENUS
+  ------------------------- */
 
   nav ul li ul {
+    display: none;
+
     position: static;
 
     width: 100%;
 
     min-width: 0;
 
-    box-shadow: none;
+    margin: 0;
+    padding: 0;
 
     background-color: #292929;
+
+    box-shadow: none;
   }
 
+
+  /* -------------------------
+     SUBMENU LINKS
+  ------------------------- */
 
   nav ul li ul li a {
-    padding-left: 28px;
+    display: block;
+
+    width: 100%;
+
+    padding: 12px 28px;
+
+    color: white;
+
+    text-align: left;
+
+    text-decoration: none;
   }
 
+
+  /* -------------------------
+     OPEN SUBMENU
+  ------------------------- */
 
   nav ul li.open > ul {
     display: block;
   }
 
 
-  /* MOBILE ARROWS */
+  /* -------------------------
+     DROPDOWN ARROWS
+  ------------------------- */
 
   nav ul li.has-submenu > a {
     position: relative;
@@ -313,12 +438,13 @@ nav ul li.has-submenu > a::after {
   }
 
 
+  /* Rotate arrow */
+
   nav ul li.open > a::after {
     transform: rotate(180deg);
   }
 
 }
-
 
 
 

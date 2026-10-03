@@ -71,3 +71,37 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 ;
+
+
+
+
+
+  // Get items that have dropdowns
+  const submenuItems =
+    document.querySelectorAll(".has-submenu");
+
+
+  // Loop through each dropdown
+  submenuItems.forEach((item) => {
+
+    const link =
+      item.querySelector(":scope > a");
+
+
+    link.addEventListener("click", (event) => {
+
+      // Only do this on mobile
+      if (window.innerWidth <= 768) {
+
+        event.preventDefault();
+
+        item.classList.toggle("open");
+
+      }
+
+    });
+
+  });
+
+
+
