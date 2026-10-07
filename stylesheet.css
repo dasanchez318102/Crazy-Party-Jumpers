@@ -663,26 +663,98 @@ nav ul li.has-submenu > a::after {
 
 
 
-.circle-img-bottom {
-  width: 250px;
-  height: 250px;
+footer .circle-img-bottom {
+  width: 200px;
+  height: 200px;
   border-radius: 50%;   /* keeps it circular need to look into this code */
   object-fit: cover;
   box-shadow: 10px 10xp 10xp 0px gainsboro;
   float: left
 }
+
+.left-logo{
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    
+    
+
+}
+.bottom-links{
+    display: flex;
+    flex-direction: column;
+     align-items: flex-start;
+}
+.bottom-links a{
+    padding: 5px 5x;
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+
+}
   
+.bottom-links h3{
+    font-size: 1.8erm;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.bottom-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 220px;
+}
+
+.bottom-links li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bottom-links a {
+    display: block;
+    padding: 8px 0;
+
+    text-decoration: none;
+    color: white;
+    text-align: left;
+
+    font-size: 1.1rem;
+}
+
+.bottom-links a:hover {
+    opacity: 0.7;
+}
+
+
   .store-footer {
   background: #333;         /* dark footer background */
   color: #fff;
   padding: 40px 20px;
   text-align: center;
 }
+.foot-outline{
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.middle-map{
+    max-width: 800px;;
+    
+}
+.middle-map iframe
+{
+    width: 500px;
+    height: 350px;
+}
 
 .store-footer h3 {
   margin-bottom: 20px;
   font-size: 1.5rem;
-align-items: center;  
+  align-items: center;  
 }
 
 /* neat two-column look for hours */
@@ -701,6 +773,7 @@ align-items: center;
   justify-content: space-between;
   padding: 6px 0;
   border-bottom: 1px solid rgba(255,255,255,0.2);
+  font-size: 1.3rem;
 }
 
 .hours-list .day {
@@ -708,9 +781,319 @@ align-items: center;
   float: right;
 }
 
-.hours-list .time.closed {
-  color: #ff6b6b;           /* red text for CLOSED */
-  font-weight: 700;
+.store-footer .copyright {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+ .circle-img-bottom {
+    display: block;          /* so it takes full line and margin auto works */
+    margin: 0 auto 20px auto; /* top 0, bottom 20px spacing */
+    float: none;             /* ensure float removed if it was used earlier */
+  }
+
+
+
+
+ /* =========================
+   MOBILE FOOTER
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* Main footer */
+  .store-footer {
+    padding: 35px 20px;
+    text-align: center;
+  }
+
+
+  /* Stack footer sections vertically */
+  .foot-outline {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+
+  /* =========================
+     CONNECT WITH US
+     ========================= */
+
+  .left-logo {
+    order: 1;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  /* Hide logo on mobile */
+  .circle-img-bottom {
+    display: none;
+  }
+
+
+  .bottom-links {
+    width: 100%;
+    max-width: 350px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .bottom-links h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0 0 15px;
+  }
+
+
+  .bottom-links ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  .bottom-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+
+  .bottom-links a {
+    display: block;
+
+    width: 100%;
+    padding: 10px 0;
+
+    color: white;
+    text-decoration: none;
+    text-align: center;
+
+    font-size: 1.1rem;
+  }
+
+
+  .bottom-links a:hover {
+    opacity: 0.7;
+  }
+
+
+  /* =========================
+     STORE HOURS
+     ========================= */
+
+  .right-hour {
+    order: 2;
+    width: 100%;
+  }
+
+
+  .right-hour h3 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+
+  .hours-list {
+    width: 100%;
+    max-width: 350px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    list-style: none;
+  }
+
+
+  .hours-list li {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: 8px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+
+  .hours-list .day {
+    width: auto;
+    text-align: left;
+  }
+
+
+  .hours-list .time {
+    width: auto;
+    text-align: right;
+  }
+
+
+  /* =========================
+     GOOGLE MAP
+     ========================= */
+
+  .middle-map {
+    order: 3;
+
+    width: 100%;
+    max-width: 400px;
+  }
+
+
+  .middle-map iframe {
+    display: block;
+
+    width: 100%;
+    height: 250px;
+
+    border: none;
+    border-radius: 10px;
+  }
+
+
+  /* =========================
+     COPYRIGHT
+     ========================= */
+
+  .copyright {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+}
+
+}
+
+footer .circle-img-bottom {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;   /* keeps it circular need to look into this code */
+  object-fit: cover;
+  box-shadow: 10px 10xp 10xp 0px gainsboro;
+  float: left
+}
+
+.left-logo{
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    
+    
+
+}
+.bottom-links{
+    display: flex;
+    flex-direction: column;
+     align-items: flex-start;
+}
+.bottom-links a{
+    padding: 5px 5x;
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+
+}
+  
+.bottom-links h3{
+    font-size: 1.8erm;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.bottom-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 220px;
+}
+
+.bottom-links li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bottom-links a {
+    display: block;
+    padding: 8px 0;
+
+    text-decoration: none;
+    color: white;
+    text-align: left;
+
+    font-size: 1.1rem;
+}
+
+.bottom-links a:hover {
+    opacity: 0.7;
+}
+
+
+  .store-footer {
+  background: #333;         /* dark footer background */
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+.foot-outline{
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.middle-map{
+    max-width: 800px;;
+    
+}
+.middle-map iframe
+{
+    width: 500px;
+    height: 350px;
+}
+
+.store-footer h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  align-items: center;  
+}
+
+/* neat two-column look for hours */
+.hours-list {
+  float: r;
+  list-style: none;
+  max-width: 400px;         /* keep centered and tidy */
+  margin: 0 auto 20px;
+  padding: 0;
+  
+  
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  font-size: 1.3rem;
+}
+
+.hours-list .day {
+  font-weight: 600;
+  float: right;
 }
 
 .store-footer .copyright {
@@ -718,32 +1101,201 @@ align-items: center;
   opacity: 0.7;
 }
 
-/* Mobile-friendly stacking */
-
 @media (max-width: 480px) {
-   .circle-img-bottom {
+ .circle-img-bottom {
     display: block;          /* so it takes full line and margin auto works */
     margin: 0 auto 20px auto; /* top 0, bottom 20px spacing */
     float: none;             /* ensure float removed if it was used earlier */
   }
-  
-  .hours-list li {
-    flex-direction: column;
-    align-items: center;
+
+
+
+
+ /* =========================
+   MOBILE FOOTER
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* Main footer */
+  .store-footer {
+    padding: 35px 20px;
     text-align: center;
   }
-  .hours-list .day,
-  .hours-list .time {
+
+
+  /* Stack footer sections vertically */
+  .foot-outline {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+
+  /* =========================
+     CONNECT WITH US
+     ========================= */
+
+  .left-logo {
+    order: 1;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  /* Hide logo on mobile */
+  .circle-img-bottom {
+    display: none;
+  }
+
+
+  .bottom-links {
+    width: 100%;
+    max-width: 350px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .bottom-links h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0 0 15px;
+  }
+
+
+  .bottom-links ul {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  .bottom-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+
+  .bottom-links a {
+    display: block;
+
+    width: 100%;
+    padding: 10px 0;
+
+    color: white;
+    text-decoration: none;
+    text-align: center;
+
+    font-size: 1.1rem;
+  }
+
+
+  .bottom-links a:hover {
+    opacity: 0.7;
+  }
+
+
+  /* =========================
+     STORE HOURS
+     ========================= */
+
+  .right-hour {
+    order: 2;
     width: 100%;
   }
+
+
+  .right-hour h3 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+
+  .hours-list {
+    width: 100%;
+    max-width: 350px;
+
+    margin: 0 auto;
+    padding: 0;
+
+    list-style: none;
+  }
+
+
+  .hours-list li {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: 8px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+
+  .hours-list .day {
+    width: auto;
+    text-align: left;
+  }
+
+
+  .hours-list .time {
+    width: auto;
+    text-align: right;
+  }
+
+
+  /* =========================
+     GOOGLE MAP
+     ========================= */
+
+  .middle-map {
+    order: 3;
+
+    width: 100%;
+    max-width: 400px;
+  }
+
+
+  .middle-map iframe {
+    display: block;
+
+    width: 100%;
+    height: 250px;
+
+    border: none;
+    border-radius: 10px;
+  }
+
+
+  /* =========================
+     COPYRIGHT
+     ========================= */
+
+  .copyright {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+}
+
 }
 
 
-.product-gridc {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
+
+
 
 
 
@@ -1262,4 +1814,121 @@ background-image: url("images/decortion 1.jpg");
       "e f"
       "g h";
   }
+}
+
+
+
+
+
+.policies{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.policies h2{
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.policies p{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;  
+}
+
+
+
+
+.form-sec {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+.form-sec fieldset {
+  border: none;
+  border-radius: 15px;
+  padding: 30px;
+  background-color: white;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.form-sec legend {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 0 10px;
+}
+.form-group label {
+    width: 70%;
+
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+.form-group {
+  align-items: center;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group textarea {
+  width: 70%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #333;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group.inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+.radio-group {
+    width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-group div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.radio-group label {
+  width: auto;
+  margin-bottom: 0;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  cursor: pointer;
 }
