@@ -32,16 +32,11 @@ body {
 .header {
   display: flex;
   align-items: center;
-
   width: 100%;
   min-height: 110px;
-
   background-color: #333;
-
   padding: 5px 20px;
-
   position: relative;
-
   z-index: 1000;
 }
 
@@ -57,11 +52,8 @@ body {
 .circle-img {
   width: 100px;
   height: 100px;
-
   border-radius: 50%;
-
   object-fit: cover;
-
   display: block;
 }
 
@@ -72,13 +64,9 @@ body {
 
 nav {
   flex: 1;
-
   margin-left: 25px;
-
   position: relative;
-
   overflow: visible;
-
   z-index: 100;
 }
 
@@ -87,16 +75,11 @@ nav {
 
 nav > ul {
   list-style: none;
-
   margin: 0;
   padding: 0;
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
   width: 100%;
 }
 
@@ -112,15 +95,10 @@ nav > ul > li {
 
 nav > ul > li > a {
   display: block;
-
   color: white;
-
   padding: 14px 12px;
-
   text-align: center;
-
   text-decoration: none;
-
   white-space: nowrap;
 }
 
@@ -138,23 +116,15 @@ nav > ul > li > a:hover {
 
 nav ul li ul {
   display: none;
-
   position: absolute;
-
   top: 100%;
   left: 0;
-
   min-width: 220px;
-
   margin: 0;
   padding: 0;
-
   list-style: none;
-
   background-color: #333;
-
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-
   z-index: 1000;
 }
 
@@ -170,15 +140,10 @@ nav ul li ul li {
 
 nav ul li ul li a {
   display: block;
-
   padding: 12px 16px;
-
   color: white;
-
   text-decoration: none;
-
   text-align: left;
-
   white-space: nowrap;
 }
 
@@ -218,13 +183,9 @@ nav ul li.has-submenu > a::after {
 
 .menu-toggle {
   display: none;
-
   color: white;
-
   font-size: 30px;
-
   padding: 10px;
-
   cursor: pointer;
 }
 
@@ -241,15 +202,10 @@ nav ul li.has-submenu > a::after {
 
   .header {
     display: flex;
-
     align-items: center;
-
     width: 100%;
-
     min-height: 85px;
-
     padding: 5px 10px;
-
     position: relative;
   }
 
@@ -261,9 +217,7 @@ nav ul li.has-submenu > a::after {
   .circle-img {
     width: 65px;
     height: 65px;
-
     border-radius: 50%;
-
     object-fit: cover;
   }
 
@@ -274,9 +228,7 @@ nav ul li.has-submenu > a::after {
 
   nav {
     flex: 1;
-
     margin-left: 0;
-
     position: static;
   }
 
@@ -287,15 +239,10 @@ nav ul li.has-submenu > a::after {
 
   .menu-toggle {
     display: block;
-
     font-size: 30px;
-
     color: white;
-
     text-align: right;
-
     padding: 10px;
-
     cursor: pointer;
   }
 
@@ -306,67 +253,43 @@ nav ul li.has-submenu > a::after {
 
   nav > ul {
     display: none;
-
     position: absolute;
-
     top: 100%;
     left: 0;
-
     width: 100%;
-
     margin: 0;
     padding: 0;
-
     flex-direction: column;
-
     align-items: stretch;
-
     background-color: #333;
-
     max-height: 80vh;
-
     overflow-y: auto;
-
     z-index: 2000;
   }
-
-
   /* JavaScript adds .show */
 
   nav > ul.show {
     display: flex;
   }
 
-
   /* -------------------------
      MOBILE MENU ITEMS
   ------------------------- */
-
   nav > ul > li {
     width: 100%;
   }
-
-
   /* -------------------------
      MOBILE LINKS
   ------------------------- */
-
   nav > ul > li > a {
     display: block;
-
     width: 100%;
-
     padding: 14px 18px;
-
     color: white;
-
     text-align: left;
-
     text-decoration: none;
-
     border-top: 1px solid #444;
   }
-
 
   /* -------------------------
      MOBILE SUBMENUS
@@ -374,41 +297,26 @@ nav ul li.has-submenu > a::after {
 
   nav ul li ul {
     display: none;
-
     position: static;
-
     width: 100%;
-
     min-width: 0;
-
     margin: 0;
     padding: 0;
-
     background-color: #292929;
-
     box-shadow: none;
   }
-
-
   /* -------------------------
      SUBMENU LINKS
   ------------------------- */
 
   nav ul li ul li a {
     display: block;
-
     width: 100%;
-
     padding: 12px 28px;
-
     color: white;
-
     text-align: left;
-
     text-decoration: none;
   }
-
-
   /* -------------------------
      OPEN SUBMENU
   ------------------------- */
@@ -424,16 +332,13 @@ nav ul li.has-submenu > a::after {
 
   nav ul li.has-submenu > a {
     position: relative;
-
     padding-right: 40px;
   }
 
 
   nav ul li.has-submenu > a::after {
     position: absolute;
-
     right: 16px;
-
     transition: transform 0.2s ease;
   }
 
@@ -445,6 +350,14 @@ nav ul li.has-submenu > a::after {
   }
 
 }
+
+
+
+
+
+
+
+
 
 
 
