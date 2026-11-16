@@ -70,11 +70,14 @@
 
 <section class="form-sec">
 
-  <form class="form-outline"
+  <form 
+    id="contactForm"
+
+  class="form-outline"
    action="https://formspree.io/f/xqppraag"
   method="POST"
   >
-
+<p id="formMessage" role="status" aria-live="polite"></p>
     <fieldset>
 
       <legend>Interested Form</legend>
@@ -349,8 +352,55 @@
 
     </footer>
 
+<script>
+const contactForm = document.querySelector("#contactForm");
+const formMessage = document.querySelector("#formMessage");
 
- <script src="menu.js"></script>
+contactForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  formMessage.textContent = "Sending your request...";
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+
+    if (response.ok) {
+      formMessage.textContent =
+        "Thank you! Your request was sent successfully.";
+
+      // Google Ads conversion
+      if (typeof gtag === "function") {
+        gtag("event", "conversion", {
+          send_to: "AW-18454532074/HpOTCJis47kdEOqf599E"
+        });
+      }
+
+      contactForm.reset();
+
+    } else {
+      formMessage.textContent =
+        "Something went wrong. Please try again.";
+    }
+
+  } catch (error) {
+    formMessage.textContent =
+      "Unable to send your request. Please try again.";
+  }
+});
+</script>
+
+ <script src="menu.js">
+
+
+
+
+ </script>
 
  </body>
 </html>
