@@ -105,3 +105,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+  // these are button for selected amount of guest
+const guest50 = document.querySelector("#guest50");
+const guest100 = document.querySelector("#guest100");
+
+// these are tighed to the pricing for each package
+const essentialPrice = document.querySelector("#essential");
+const signaturePrice = document.querySelector("#signature")
+const luxuryPrice = document.querySelector("#luxury");
+
+// 3. SELECT ALL GUEST COUNTS
+
+const guestCounts = document.querySelectorAll(".guest-count");
+const guestButtons = document.querySelectorAll(".guest-btn");
+
+const packages = {
+  essential: {
+    50: 1200,
+    100: 1500,
+  },
+
+  signature: {
+    50: 2000,
+    100: 2500,
+  },
+
+  luxury: {
+    50: 3000,
+    100: 3700,
+  }
+};
+
+
+
+function updatePrices(guests) {
+
+  essentialPrice.textContent =
+    "$" + packages.essential[guests].toLocaleString();
+
+  signaturePrice.textContent =
+    "$" + packages.signature[guests].toLocaleString();
+
+  luxuryPrice.textContent =
+    "$" + packages.luxury[guests].toLocaleString();
+
+
+  // Update all three guest counts
+
+  guestCounts.forEach((count) => {
+    count.textContent = guests;
+  });
+
+
+  // Remove active class from all buttons
+
+  guestButtons.forEach((button) => {
+    button.classList.remove("active");
+  });
+
+
+  // Add active class to selected button
+
+  if (guests === 50) {
+    guest50.classList.add("active");
+  }
+
+  else if (guests === 100) {
+    guest100.classList.add("active");
+  }
+
+
+}
+
+
+// 6. BUTTON EVENT LISTENERS
+
+guest50.addEventListener("click", () => {
+  updatePrices(50);
+});
+
+guest100.addEventListener("click", () => {
+  updatePrices(100);
+});
+
+
+
